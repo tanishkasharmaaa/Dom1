@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calulator</title>
+</head>
+<body>
+    <input type="number" placeholder="Enter 1st Number" id="1st">
+    <input type="number" placeholder="Enter 2nd Number" id="2nd">
+  
+    <br><br>
+    <button onclick="add()">Add</button>
+    <button onclick="sub()">Subtract</button>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>  <br><br>
+   <h1 id="ans"></h1>
+     
+</body>
+</html>
+<script>
+  
+function add(){
+  var first_num=document.getElementById("1st");
+ var second_num=document.getElementById("2nd");
+ var ans=document.getElementById("ans");
+ ans.innerText=Number(first_num.value)+Number(second_num.value)
+ 
+
+}
+function sub(){
+    var first_num=document.getElementById("1st");
+ var second_num=document.getElementById("2nd");
+ var ans=document.getElementById("ans");
+ ans.innerText=first_num.value-second_num.value
+}
+function multiply(){
+    var first_num=document.getElementById("1st");
+ var second_num=document.getElementById("2nd");
+ var ans=document.getElementById("ans");
+ ans.innerText=first_num.value*second_num.value
+}
+function divide(){
+    var first_num=document.getElementById("1st");
+ var second_num=document.getElementById("2nd");
+ var ans=document.getElementById("ans");
+ ans.innerText=first_num.value/second_num.value
+}
+
+</script>

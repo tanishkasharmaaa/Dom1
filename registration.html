@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+</head>
+<body>
+	<input type="text" name="name" id="name">
+	<select id="gender">
+		<option value="">--</option>
+		<option value="male">M</option>
+		<option value="female">F</option>
+	</select>
+	<input type="text" name="email" id="email">
+	<input type="text" name="mobile" id="mobile">
+	<hr>
+	<h1 id="dName">NAME</h1>
+	<h2 id="dGender">GENDER</h2>
+	<h3 id="dEmail">EMAIL</h3>
+	<h4 id="dMobile">MOBILE</h4>
+	<hr>
+	<button onclick="showName()">NAME</button>
+	<button onclick="showGender()">GENDER</button>
+	<button onclick="showEmail()">EMAIL</button>
+	<button onclick="showMobile()">MOBILE</button>
+	<button onclick="resetForm()">RESET FORM</button>
+	<button onclick="resetDisplay()">RESET DISPLAY</button>
+	<script type="text/javascript">
+		function showName() {
+            var input_name=document.getElementById("name");
+            var dName=document.getElementById("dName");
+          dName.textContent="NAME:-"+input_name.value;
+
+			// Show filled name inside h1
+		}
+
+		function showGender() {
+             var input_gender=document.getElementById("gender");
+             var dGender=document.getElementById("dGender");
+             dGender.textContent="GENDER:-"+input_gender.value
+
+			// Show the selected gender inside h2
+		}
+
+		function showEmail() {
+            var input_email=document.getElementById("email");
+            var dEmail=document.getElementById("dEmail")
+            dEmail.textContent="EMAIL:-"+input_email.value;
+			// Show the filled email inside h3
+		}
+
+		function showMobile() {
+            input_mobile=document.getElementById("mobile");
+            dMobile=document.getElementById("dMobile");
+            dMobile.textContent="Mobile:-"+ input_mobile.value;
+			// Show the filled mobile inside h4
+		}
+
+		function resetForm() {
+            var input_name=document.getElementById("name");
+            var input_gender=document.getElementById("gender");
+            var input_email=document.getElementById("email");
+           var input_mobile=document.getElementById("mobile");
+            
+           input_name.value=" ";
+           input_gender.value=0;
+           input_email.value=" ";
+           input_mobile.value=" ";
+			// Reset all the form elements to default values (blank "")
+		}
+
+		function resetDisplay() {
+            var dName=document.getElementById("dName");
+            var dGender=document.getElementById("dGender");
+            var dMobile=document.getElementById("dMobile");
+            var dEmail=document.getElementById("dEmail");
+            dName.textContent="NAME";
+            dGender.textContent="GENDER";
+            dEmail.textContent="EMAIL"
+            dMobile.textContent="Mobile"
+			// Reset all the headings (h1, h2, h3, h4) to blank values
+		}
+	</script>
+</body>
+</html>
