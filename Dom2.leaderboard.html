@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: apple-system, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";;
+        }
+        #board{
+            display: flex;
+        }
+        #score{
+            border: 3px solid black;
+            margin-left: 100px;
+            width: 200px;
+            height: 70px;
+            background-color: gray;
+            margin-left: 550px;
+            margin-top: -10px;
+            color: black;
+        }
+        #min{
+            border: 2px solid black;
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            margin-left: 480px;
+            margin-top: 10px;
+        }
+        #max{
+            border: 2px solid black;
+            width: 100px;
+            height: 50px;
+            background-color: greenyellow;
+            margin-left: 150px;
+            margin-top: 10px; 
+            
+        }
+        input{
+            font-size: 35px;
+        }
+        #btn{
+            display: grid;
+            grid-template-columns: 60px 60px 60px ;
+            grid-template-rows: 60px 60px 60px 60px;
+            grid-gap: 15px;
+            margin-left: 550px;
+            margin-top: 10px;
+            
+        }
+       #btn>button{
+        font-size: 20px;
+       }
+       #ent{
+           background-color: black;
+           color: white;
+           width: 210px;
+           height: 60px;
+           font-size: 35px;
+           margin-left: 550px;
+           margin-top: 10px;
+           font-family: apple-system, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+       }
+
+    </style>
+</head>
+<body>
+    <div id="board">
+        <input id="min" type="number" placeholder=""><br>
+      
+        <input id="max" type="number" placeholder="">
+       
+    </div>
+    <h1 style="margin-left: 500px;">MIN</h1>
+    <h1 style="margin-left: 750px; margin-top: -60px;">MAX</h1>
+    <h1 style="margin-left: 590px; margin-top: -20px;">SCORE</h1>
+    <input id="score" type="number" placeholder="         #">
+    <div id="btn">
+    <button style="background-color: rgb(124, 161, 64);">1</button>
+    <button style="background-color: rgb(255, 132, 0);">2</button>
+    <button style="background-color: rgb(124, 161, 64);">3</button>
+    <button style="background-color: rgb(255, 132, 0);">4</button>
+    <button style="background-color: rgb(255, 132, 0);">5</button>
+    <button style="background-color: rgb(255, 132, 0);">6</button>
+    <button style="background-color: rgb(124, 161, 64);">7</button>
+    <button style="background-color: rgb(255, 132, 0);">8</button>
+    <button style="background-color: rgb(124, 161, 64);">9</button>
+    <button style="border: 0px; background-color: white;"></button>
+    <button style="background-color: rgb(128, 39, 146); color: white;">0</button>
+    <button style="background-color: white;border: 0px;"></button>
+    
+</div>
+<button id="ent">ENTER</button>
+</body>
+</html>
+<script>
+    let max=document.getElementById("min");
+    let min=document.getElementById("min");
+    let score=document.getElementById("score");
+    let num=document.querySelectorAll("#btn>button");
+    let enter=document.getElementById("ent")
+    let mainNum=""
+    for(let i=0;i<num.length;i++){
+        num[i].addEventListener("click",function(){
+           mainNum+=num[i].innerText;
+           score.value=mainNum;
+
+           
+        })
+    }
+   
+    // function update(){
+    //    if(min.value<score.value){
+    //     console.log(score.value)
+    //    }
+    //    else if (max.value<score.value){
+    //     console.log(score.value)
+    //    }
+    // }
+
+  enter.addEventListener("click",function(){
+    if(!isNaN(score.value)){
+        if(score.value<min.value|| isNaN(min.value)){
+            min.value=score.value;
+        }
+        else if(score.value>max.value||isNaN(max.value)){
+            max.value=score.value;
+        }
+        score.value="";
+
+    }
+       
+  })
+
+  
+
+
+
+</script>
