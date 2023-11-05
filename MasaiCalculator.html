@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    #calculator {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #ans {
+      font-size: 24px;
+      margin: 0;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #number, #operator {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 5px;
+      margin: 20px 0;
+    }
+
+    button {
+      width: 40px;
+      height: 40px;
+      background-color: #3498db;
+      color: #fff;
+      font-size: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #equal {
+      grid-column: span 3;
+      background-color: #e74c3c;
+    }
+
+    #equal:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <div id="calculator">
+    <h1 id="ans">0</h1>
+
+    <div id="number">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button style="background-color: white; border: 0;"></button>
+      <button>0</button>
+      <button style="background-color: white; border: 0;"></button>
+    </div>
+    
+    <div id="operator">
+      <button>+</button>
+      <button>-</button>
+      <button>*</button>
+      <button>/</button>
+    </div>
+
+    <button id="equal">=</button>
+  </div>
+
+  <script>
+    let keypad=document.querySelectorAll("#number>button");
+let operator=document.querySelectorAll("#operator>button");
+let head=document.getElementById("ans");
+let ifFirstnum=true;
+let opt=""
+
+let firstnum="";
+let secondnum="";
+let equal=document.getElementById("equal")
+equal.addEventListener("click",function()
+{
+head.innerText=calculate(firstnum,secondnum,opt)
+})
+
+for(let i=0;i<keypad.length;i++)
+{
+   keypad[i].addEventListener("click",function()
+  {  
+    if(ifFirstnum==true){
+    firstnum+=keypad[i].innerText;
+    head.innerText=firstnum;
+  }
+  else{
+    secondnum+=keypad[i].innerText;
+    head.innerText=secondnum;
+  }
+  }
+  )
+}
+
+for(let i=0;i<operator.length;i++)
+{
+  operator[i].addEventListener("click",function()
+  {
+     ifFirstnum=false;
+     opt = operator[i].innerText;
+  })
+}
+function calculate(firstnum,secondnum,opt){
+  switch(opt)
+  {
+    case "+":
+    return Number(firstnum)+Number(secondnum);
+    case "-":
+    return Number(firstnum)-Number(secondnum);
+    case "*":
+    return Number(firstnum)*Number(secondnum);
+    case "/":
+    return Number(firstnum)/Number(secondnum);
+
+
+  }
+}
+  </script>
+</body>
+</html>
