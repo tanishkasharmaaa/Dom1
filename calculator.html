@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calulator</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <input type="number" placeholder="Enter 1st Number" id="1st">
-    <input type="number" placeholder="Enter 2nd Number" id="2nd">
-  
-    <br><br>
-    <button onclick="add()">Add</button>
-    <button onclick="sub()">Subtract</button>
-    <button onclick="multiply()">Multiply</button>
-    <button onclick="divide()">Divide</button>  <br><br>
-   <h1 id="ans"></h1>
-     
-</body>
-</html>
-<script>
-  
-function add(){
-  var first_num=document.getElementById("1st");
- var second_num=document.getElementById("2nd");
- var ans=document.getElementById("ans");
- ans.innerText=Number(first_num.value)+Number(second_num.value)
- 
+  <h1 id="display"></h1>
+  <input id="i" type="number" placeholder="enter 1st Number">
+  <input id="ii" type="number" placeholder="enter 2nd Number"><br><br>
+ <button id="add" onclick="add()">Add</button>
+ <button id="sub" onclick="sub()">Sub</button>
+ <button id="multiply" onclick="multiply()">Multiply</button>
+ <button id="divide" onclick="divide()">Divide</button>
 
-}
-function sub(){
-    var first_num=document.getElementById("1st");
- var second_num=document.getElementById("2nd");
- var ans=document.getElementById("ans");
- ans.innerText=first_num.value-second_num.value
-}
-function multiply(){
-    var first_num=document.getElementById("1st");
- var second_num=document.getElementById("2nd");
- var ans=document.getElementById("ans");
- ans.innerText=first_num.value*second_num.value
-}
-function divide(){
-    var first_num=document.getElementById("1st");
- var second_num=document.getElementById("2nd");
- var ans=document.getElementById("ans");
- ans.innerText=first_num.value/second_num.value
-}
+</body>
+<script>
+let button1=document.getElementById("add");
+let button2=document.getElementById("sub");
+let button3=document.getElementById("multiply");
+let button4=document.getElementById("divide")
+
+function add(){
+  let input1=document.getElementById("ii");
+  let input=document.getElementById("i");
+  let adding=Number(input.value)+Number(input1.value);
+   alert(adding)
+ }
+ function sub(){
+  let input1=document.getElementById("ii");
+  let input=document.getElementById("i");
+  let subtract=input.value-input1.value;
+   alert(subtract)
+ }
+ function multiply(){
+  let input1=document.getElementById("ii");
+  let input=document.getElementById("i");
+  let multiply=input.value*input1.value;
+   alert(multiply)
+ }
+ function divide(){
+  let input1=document.getElementById("ii");
+  let input=document.getElementById("i");
+  let divide=input.value/input1.value;
+   alert(divide)
+ }
 
 </script>
+</html>
