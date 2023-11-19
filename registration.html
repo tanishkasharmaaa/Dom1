@@ -1,125 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            font-family: apple-system, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";;
-        }
-        #board{
-            display: flex;
-        }
-        #score{
-            border: 3px solid black;
-            margin-left: 100px;
-            width: 200px;
-            height: 70px;
-            background-color: gray;
-            margin-left: 550px;
-            margin-top: -10px;
-            color: black;
-        }
-        #min{
-            border: 2px solid black;
-            width: 100px;
-            height: 50px;
-            background-color: red;
-            margin-left: 480px;
-            margin-top: 10px;
-        }
-        #max{
-            border: 2px solid black;
-            width: 100px;
-            height: 50px;
-            background-color: greenyellow;
-            margin-left: 150px;
-            margin-top: 10px; 
-            
-        }
-        input{
-            font-size: 35px;
-        }
-        #btn{
-            display: grid;
-            grid-template-columns: 60px 60px 60px ;
-            grid-template-rows: 60px 60px 60px 60px;
-            grid-gap: 15px;
-            margin-left: 550px;
-            margin-top: 10px;
-            
-        }
-       #btn>button{
-        font-size: 20px;
-       }
-       #ent{
-           background-color: black;
-           color: white;
-           width: 210px;
-           height: 60px;
-           font-size: 35px;
-           margin-left: 550px;
-           margin-top: 10px;
-           font-family: apple-system, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-       }
-
-    </style>
+	<title>Registration</title>
 </head>
-<body>
-    <div id="board">
-        <input id="min" type="number" placeholder=""><br>
-      
-        <input id="max" type="number" placeholder="">
-       
-    </div>
-    <h1 style="margin-left: 500px;">MIN</h1>
-    <h1 style="margin-left: 750px; margin-top: -60px;">MAX</h1>
-    <h1 style="margin-left: 590px; margin-top: -20px;">SCORE</h1>
-    <input id="score" type="number" placeholder="         #">
-    <div id="btn">
-    <button style="background-color: rgb(124, 161, 64);">1</button>
-    <button style="background-color: rgb(255, 132, 0);">2</button>
-    <button style="background-color: rgb(124, 161, 64);">3</button>
-    <button style="background-color: rgb(255, 132, 0);">4</button>
-    <button style="background-color: rgb(255, 132, 0);">5</button>
-    <button style="background-color: rgb(255, 132, 0);">6</button>
-    <button style="background-color: rgb(124, 161, 64);">7</button>
-    <button style="background-color: rgb(255, 132, 0);">8</button>
-    <button style="background-color: rgb(124, 161, 64);">9</button>
-    <button style="border: 0px; background-color: white;"></button>
-    <button style="background-color: rgb(128, 39, 146); color: white;">0</button>
-    <button style="background-color: white;border: 0px;"></button>
-    
-</div>
-<button id="ent">ENTER</button>
-</body>
-</html>
-<script>
-   let min=document.getElementById("min")
-   let max=document.getElementById("max");
-   let score=document.getElementById("score");
-   let button=document.querySelectorAll("#btn>button");
-   let enter=document.getElementById("ent");
-   let acc=""
-   for(let i=0;i<button.length;i++){
-    button[i].addEventListener("click",function(){
-   acc+=button[i].innerText;
-    score.value=acc
-    })
-   }
 
-   enter.addEventListener("click",function(){
-  //  if(!isNaN(score.value)){
-    if(score.value>min.value&&score.value<=max.value){
-    min.value=score.value
-    }
-    else if(score.value>max.value){
-      max.value=score.value;
-    }
-    score.value="";
-   }
- )
- 
-</script>
+<body>
+	<input type="text" name="name" id="name">
+	<select id="gender">
+		<option value="">--</option>
+		<option value="male">M</option>
+		<option value="female">F</option>
+	</select>
+	<input type="text" name="email" id="email">
+	<input type="text" name="mobile" id="mobile">
+	<hr>
+	<h1 id="dName">NAME</h1>
+	<h2 id="dGender">GENDER</h2>
+	<h3 id="dEmail">EMAIL</h3>
+	<h4 id="dMobile">MOBILE</h4>
+	<hr>
+	<button onclick="showName()">NAME</button>
+	<button onclick="showGender()">GENDER</button>
+	<button onclick="showEmail()">EMAIL</button>
+	<button onclick="showMobile()">MOBILE</button>
+	<button onclick="resetForm()">RESET FORM</button>
+	<button onclick="resetDisplay()">RESET DISPLAY</button>
+	<script type="text/javascript">
+		function showName() {
+			// Show filled name inside h1
+			let name = document.getElementById("name");
+			let Dname = document.getElementById("dName");
+			Dname.innerText = "NAME:-" + name.value
+
+
+		}
+
+		function showGender() {
+			// Show the selected gender inside h2
+			let gender = document.getElementById("gender");
+			let DGender = document.getElementById("dGender");
+			DGender.innerText = "GENDER:-" + gender.value
+		}
+
+		function showEmail() {
+			// Show the filled email inside h3
+			let email = document.getElementById("email");
+			let Demail = document.getElementById("dEmail");
+			Demail.innerText = "EMAIL:-" + email.value;
+
+		}
+
+		function showMobile() {
+			// Show the filled mobile inside h4
+			let mobile = document.getElementById("mobile");
+			let Dmobile = document.getElementById("dMobile");
+			Dmobile.innerText = "MOBILE:-" + mobile.value
+		}
+
+		function resetForm() {
+			
+			let name = document.getElementById("name");
+			let gender = document.getElementById("gender");
+			let email = document.getElementById("email");
+			let mobile = document.getElementById("mobile");
+			
+			name.value="";
+			gender.value=0;
+			email.value="";
+			mobile.value="";
+		}
+
+		function resetDisplay() {
+			// Reset all the headings (h1, h2, h3, h4) to blank values
+			let Dname = document.getElementById("dName");
+			let DGender = document.getElementById("dGender");
+			let Demail = document.getElementById("dEmail");
+			let Dmobile = document.getElementById("dMobile");
+			
+
+			Dname.innerText = "NAME"
+			DGender.innerText = "GENDER" 
+			Demail.innerText = "EMAIL"
+			Dmobile.innerText = "MOBILE"
+		}
+	</script>
+</body>
+
+</html>
