@@ -97,47 +97,29 @@
 </body>
 </html>
 <script>
-    let max=document.getElementById("min");
-    let min=document.getElementById("min");
-    let score=document.getElementById("score");
-    let num=document.querySelectorAll("#btn>button");
-    let enter=document.getElementById("ent")
-    let mainNum=""
-    for(let i=0;i<num.length;i++){
-        num[i].addEventListener("click",function(){
-           mainNum+=num[i].innerText;
-           score.value=mainNum;
-           
+   let min=document.getElementById("min")
+   let max=document.getElementById("max");
+   let score=document.getElementById("score");
+   let button=document.querySelectorAll("#btn>button");
+   let enter=document.getElementById("ent");
+   let acc=""
+   for(let i=0;i<button.length;i++){
+    button[i].addEventListener("click",function(){
+   acc+=button[i].innerText;
+    score.value=acc
+    })
+   }
 
-           
-        })
+   enter.addEventListener("click",function(){
+  //  if(!isNaN(score.value)){
+    if(score.value>min.value&&score.value<=max.value){
+    min.value=score.value
     }
-   
-    // function update(){
-    //    if(min.value<score.value){
-    //     console.log(score.value)
-    //    }
-    //    else if (max.value<score.value){
-    //     console.log(score.value)
-    //    }
-    // }
-
-  enter.addEventListener("click",function(){
-    if(!isNaN(score.value)){
-        if(score.value<min.value|| isNaN(min.value)){
-            min.value=score.value;
-        }
-        else if(score.value>max.value||isNaN(max.value)){
-            max.value=score.value;
-        }
-        score.value="";
-
+    else if(score.value>max.value){
+      max.value=score.value;
     }
-       
-  })
-
-  
-
-
-
+    score.value="";
+   }
+ )
+ 
 </script>
